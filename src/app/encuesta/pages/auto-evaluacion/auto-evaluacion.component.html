@@ -1,0 +1,54 @@
+
+<h1>Auto Evaluación</h1>
+<hr>
+
+
+<form [formGroup]="miFormulario">
+    <div class="row g-3 aling-items-center mb-3">
+        <div class="col-auto">
+            <label class="col-form-label"> Nombre:</label>
+        </div>
+        <div class="col-auto">
+            <input class="form-control"
+                    (keyup)="buscar( $event )"
+                    placeholder="nombre"
+                    [value]="name"
+                    formControlName='nombre'>
+        </div>
+
+
+        
+        <div class="col-auto">
+            <span class="form-text text-danger"
+                  *ngIf="errorCampo('nombre')">
+                    Este campo es obligatorio
+             </span>
+        </div>
+    </div>
+
+    <ul class="list-group" >
+        <li *ngFor="let option of searchNewTeacher"
+            class="list-group-item">
+            <button class="btn btn-link" 
+                    type="button"
+                    (click)="saveAutoEvaluation(option)" 
+                    >
+                {{option}}
+            </button>
+        </li>
+    </ul>
+
+
+    <div class="row">
+        <div class="col mb-3">
+            <button class="btn btn-primary float-end"
+                    (click)="guardar()">
+                Agregar
+            </button>
+        </div>
+    </div>
+</form>
+
+<h4>Formulario</h4>
+<pre>Valid: {{miFormulario.valid}} </pre>
+<pre>Value:{{miFormulario.value | json}}</pre>
