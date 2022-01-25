@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -8,6 +8,10 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
   ]
 })
 export class EncuestaComponent implements OnInit {
+
+
+  @Input() nombreEvaluador1: string[] =[];
+  @Input() teacher: string[] =[]
 
 
 
@@ -20,11 +24,7 @@ export class EncuestaComponent implements OnInit {
   )
   
  
-  teacher2 = ["Andrea Tipán", "Francisco Peralta", "Gualberto Intriago","Karla Keiloz", "Lucia Loma" ];
-  
-  nombreEvaluador1 = ["Maria Montes","Sandra Zuleta","Carlos Perez","Juan Alvarez", "Ricardo Zapata"]
  
-
   nuevoPersonasAEvaluar: FormControl =this.fb.control('',Validators.required);
   optionList:string[] = [];
   listPersons:string[] = [];
@@ -69,7 +69,7 @@ export class EncuestaComponent implements OnInit {
   setAndFilterOptionList(e: KeyboardEvent){
 
     let inputValue = this.nuevoPersonasAEvaluar.value;
-    this.listPersons = this.teacher2;
+    this.listPersons = this.teacher;
     
     this.optionList = this.listPersons.filter((opt:string) => {
           return opt.toLocaleLowerCase().indexOf(inputValue.toLocaleLowerCase()) > -1

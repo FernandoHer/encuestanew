@@ -46,10 +46,10 @@
         <label class="col-form-label">Personas a Evaluar</label>
 
         <ul class="list-group">
-            <li class="list-item-group"
+            <li class="list-group-item"
                 *ngFor="let person of this.miFormulario.controls['personasAEvaluar'].value; let i = index">
                 {{person }}
-                <button class="btn btn-danger" 
+                <button class="btn btn-danger float-end" 
                         type="button" 
                         (click)="borrar(i)">
                     Eliminar
