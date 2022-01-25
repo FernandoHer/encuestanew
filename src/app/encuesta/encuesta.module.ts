@@ -7,6 +7,8 @@ import { ProfesorComponent } from './pages/profesor/profesor.component';
 import { DirectivoComponent } from './pages/directivo/directivo.component';
 import { CruzadoComponent } from './pages/cruzado/cruzado.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EncuestaComponent } from './component/encuesta/encuesta.component';
+
 
 
 @NgModule({
@@ -14,12 +16,14 @@ import { ReactiveFormsModule } from '@angular/forms';
     AutoEvaluacionComponent,
     ProfesorComponent,
     DirectivoComponent,
-    CruzadoComponent
+    CruzadoComponent,
+    EncuestaComponent
   ],
   imports: [
     CommonModule,
     EncuestaRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
   ]
 })
 export class EncuestaModule { }
