@@ -15,47 +15,52 @@
         </div>
     </div>
 
-    <!-- Agregar a persona que va a Evaluar -->
+   
+    <div *ngIf="miFormulario.controls['tipoEvaluacion'].value !== 'Auto Evaluacion'">
+    
+    
+        <!-- Agregar a persona que va a Evaluar -->
 
-    <div class="mb-3 row" *ngIf="miFormulario.controls['nombreEvaluador'].value !== ''">
-       
-        <label class="col-sm-3 col-form-label">Agregar</label>
-        <div class="col-sm-9">
-            <div class="input-group" >
-                <input  class="form-control"
-                        [formControl] = "nuevoPersonasAEvaluar"
-                        (keyup)="setAndFilterOptionList($event)"
-                        [value]="nuevoPersonasAEvaluar"
-                        >
+        <div class="mb-3 row" *ngIf="miFormulario.controls['nombreEvaluador'].value !== ''">
+        
+            <label class="col-sm-3 col-form-label">Agregar</label>
+            <div class="col-sm-9">
+                <div class="input-group" >
+                    <input  class="form-control"
+                            [formControl] = "nuevoPersonasAEvaluar"
+                            (keyup)="setAndFilterOptionList($event)"
+                            [value]="nuevoPersonasAEvaluar"
+                            >
 
+                </div>
+                <ul class="list-group" >
+                    <li *ngFor="let option of optionList"
+                        class="list-group-item">
+                        <button class="btn btn-link" 
+                                type="button" 
+                                (click)="agregarFavorito(option)">
+                            {{option}}
+                        </button>
+                    </li>
+                </ul>
             </div>
-            <ul class="list-group" >
-                <li *ngFor="let option of optionList"
-                    class="list-group-item">
-                    <button class="btn btn-link" 
+
+        </div>
+        <div class="=mb-3 row" *ngIf="miFormulario.controls['nombreEvaluador'].value !== ''">
+            <label class="col-form-label">Personas a Evaluar</label>
+
+            <ul class="list-group">
+                <li class="list-group-item"
+                    *ngFor="let person of this.miFormulario.controls['personasAEvaluar'].value; let i = index">
+                    {{person }}
+                    <button class="btn btn-danger float-end" 
                             type="button" 
-                            (click)="agregarFavorito(option)">
-                        {{option}}
+                            (click)="borrar(i)">
+                        Eliminar
                     </button>
                 </li>
             </ul>
         </div>
-
-    </div>
-    <div class="=mb-3 row" *ngIf="miFormulario.controls['nombreEvaluador'].value !== ''">
-        <label class="col-form-label">Personas a Evaluar</label>
-
-        <ul class="list-group">
-            <li class="list-group-item"
-                *ngFor="let person of this.miFormulario.controls['personasAEvaluar'].value; let i = index">
-                {{person }}
-                <button class="btn btn-danger float-end" 
-                        type="button" 
-                        (click)="borrar(i)">
-                    Eliminar
-                </button>
-            </li>
-        </ul>
     </div>
 </form>
 

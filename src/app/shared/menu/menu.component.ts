@@ -24,7 +24,7 @@ export class MenuComponent implements OnInit {
     {route: './encuesta/auto-evaluacion', text:'Auto Evaluacion'},
     {route: './encuesta/directivo', text:'Directivo'},
     {route: './encuesta/profesor', text:'Profesor'},
-    {route: './encuesta/cruzado', text:'Cruzado'},
+    {route: './encuesta/cruzado', text:'Alumno'},
   ]
 
   constructor() { }
