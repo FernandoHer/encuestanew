@@ -1,0 +1,34 @@
+{
+  "evaluacion": [
+    {"codigo": 2001, "nombre": "Karla Kelloks"},
+    {"codigo": 2002, "nombre": "Laura Leon"},
+    {"codigo": 2003, "nombre": "Marco Mendoza"},
+    {"codigo": 2004, "nombre": "Noel Naranjo"}
+  ],
+  "alumnos":[
+    {"codigo": 1001, "nombre": "Gualberto Guano"},
+    {"codigo": 1002, "nombre": "Humberto Hernandez"},
+    {"codigo": 1003, "nombre": "Ignacio Intriago"},
+    {"codigo": 1004, "nombre": "Jairo Jacome"}
+  ],
+  "directivos": [
+    {"codigo": 3001, "nombre": "Maria Peñaherrera"},
+    {"codigo": 3002, "nombre": "Lucia Barrionuevo"},
+    {"codigo": 3003, "nombre": "Simon Zambrano"},
+    {"codigo": 3004, "nombre": "Carlos Yepez"},
+    {"codigo": 3005, "nombre": "Omar Ospina"},
+    {"codigo": 3006, "nombre": "Patricio Parra"}
+  ],
+  "profesores": [
+    {"codigo": 4001, "nombre": "Adela Alvarez"},
+    {"codigo": 4002, "nombre": "Berenisse Bazurto"},
+    {"codigo": 4003, "nombre": "Clara Cardenas"},
+    {"codigo": 4004, "nombre": "Daniel Fuentes"},
+    {"codigo": 4005, "nombre": "Lola Lalama"}
+
+  ],
+
+  "tipoEvaluacion1":["Auto Evaluacion", "Evaluar un Profesor", "Evaluar un Directivo","Option 4"],
+  "nombreEvaluador1":["Maria Montes","Sandra Zuleta","Carlos Perez","Juan Alvarez", "Ricardo Zapata"]
+ 
+}

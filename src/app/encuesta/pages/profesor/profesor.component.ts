@@ -17,7 +17,7 @@ interface Profesor
 export class ProfesorComponent implements OnInit {
 
 
-  profesores: Profesor[] = [];
+  profesores: Profesor[] | null = null;
 
   
   nombreEvaluador1: string[] = [];

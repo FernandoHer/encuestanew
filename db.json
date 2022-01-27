@@ -1,0 +1,9 @@
+{
+
+  "tipoEvaluacion1":["Auto Evaluacion", "Evaluar un Profesor", "Evaluar un Directivo","Option 4"],
+  "teacher1":["Juan Perez", "Anita Corozo", "Tamara Gomez", "Katty Megrano", "Mario Fuentes"],
+  "teacher2":["Andrea Tipán", "Francisco Peralta", "Gualberto Intriago","Karla Keiloz", "Lucia Loma" ],
+  "teacher3":["Daniel Duran", "Ernesto Eguiguren", "Humberto Haro", "Ignacio Intriago", "Jadira Jaen"],
+  "nombreEvaluador1":["Maria Montes","Sandra Zuleta","Carlos Perez","Juan Alvarez", "Ricardo Zapata"]
+ 
+}
