@@ -1,6 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
+interface Base{
+  codigo: number;
+  nombre: string
+}
+
 @Component({
   selector: 'app-encuesta',
   templateUrl: './encuesta.component.html',
@@ -11,7 +16,7 @@ export class EncuestaComponent implements OnInit {
 
 
   @Input() nombreEvaluador1: string[] =[];
-  @Input() teacher: string[] =[];
+  @Input() basePersonas: Base[] = [];
   @Input() evaluacion: string = '';
   
 
@@ -30,6 +35,7 @@ export class EncuestaComponent implements OnInit {
   optionList:string[] = [];
   listPersons:string[] = [];
   tipoEvaluacion1:string[] = [];
+  teacher:string[]=[];
   
 
   get personasAEvaluarArr(){
@@ -45,8 +51,16 @@ export class EncuestaComponent implements OnInit {
   
 
   ngOnInit(): void {
-    
-    this.miFormulario.reset({tipoEvaluacion:this.evaluacion})
+
+    console.log(this.basePersonas);
+    this.basePersonas.filter(nombre => this.teacher.push(nombre.nombre) )
+
+    console.log(this.miFormulario.value);    
+    this.miFormulario.reset(
+      {
+        tipoEvaluacion:this.evaluacion,
+        nombreEvaluador: ''
+      })
     
   }
 
@@ -104,7 +118,7 @@ export class EncuestaComponent implements OnInit {
     console.log (this.miFormulario.value);
     this.personasAEvaluarArr.clear();
     this.miFormulario.setValue({
-      tipoEvaluacion: 'Evaluar un Directivo',
+      tipoEvaluacion: this.evaluacion,
       nombreEvaluador: '',
       personasAEvaluar: []
     });
