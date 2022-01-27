@@ -25,23 +25,23 @@ export class DirectivoComponent implements OnInit {
 
  
  
-  directivos: Directivo[] = [
-    {codigo: 3001, nombre: "Maria Peñaherrera"},
-    {codigo: 3002, nombre: "Lucia Barrionuevo"},
-    {codigo: 3003, nombre: "Simon Zambrano"},
-    {codigo: 3004, nombre: "Carlos Yepez"},
-    {codigo: 3005, nombre: "Omar Ospina"},
-    {codigo: 3006, nombre: "Patricio Parra"}
-  ];
+  directivos: Directivo[] | null = null;
   nombreEvaluador1: string[] = [];
+  tipoEvaluacion1:string = '';
  
 
   ngOnInit(): void {
 
-    console.log('directivo', this.directivos)
+    this.initData();
+  }
 
-    // this.encuestaService.getData('teacher2')
-    //         .subscribe(teach => this.teacher2 = teach);
+  initData(){
+    
+    this.encuestaService.getData('directivos')
+            .subscribe(teach => this.directivos = teach);
+
+    this.encuestaService.getData('tipoEvaluacion1')
+            .subscribe(teach => this.tipoEvaluacion1 = (teach[2].nombre));
 
     this.encuestaService.getData('nombreEvaluador1')
             .subscribe(teach => this.nombreEvaluador1 = teach);

@@ -3,8 +3,9 @@
 <h1>Evaluar Alumnos</h1>
 <hr>
 
-<app-encuesta   [nombreEvaluador1]= 'nombreEvaluador1'
+<app-encuesta   *ngIf="alumnos"
+                [nombreEvaluador1]= 'nombreEvaluador1'
                 [basePersonas]= 'alumnos'
-                [evaluacion]= '"Evaluar Alumnos"'> 
+                [evaluacion]= 'tipoEvaluacion1'> 
 
 </app-encuesta>

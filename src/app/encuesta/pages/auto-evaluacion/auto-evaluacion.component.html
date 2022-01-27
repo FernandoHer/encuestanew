@@ -2,9 +2,10 @@
 <h1>Auto Evaluación</h1>
 <hr>
 
-<app-encuesta   [nombreEvaluador1]= 'nombreEvaluador1'
-                [basePersonas]= 'evaluacion'
-                [evaluacion]= '"Auto Evaluacion"'> 
+<app-encuesta   *ngIf="nombreEvaluador1"
+                [nombreEvaluador1]= 'nombreEvaluador1'
+                
+                [evaluacion]= 'tipoEvaluacion1'> 
 
 </app-encuesta>
 

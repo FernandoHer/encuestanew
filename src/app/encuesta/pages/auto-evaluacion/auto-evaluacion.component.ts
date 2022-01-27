@@ -16,23 +16,27 @@ interface AutoEvaluacion {
 export class AutoEvaluacionComponent implements OnInit {
 
  
-  evaluacion: AutoEvaluacion[] = [
-    {codigo: 2001, nombre: "Karla Kelloks"},
-    {codigo: 2002, nombre: "Laura Leon"},
-    {codigo: 2003, nombre: "Marco Mendoza"},
-    {codigo: 2004, nombre: "Noel Naranjo"},
-    
-
-  ];
-
-  nombreEvaluador1: string[] = [];
+  evaluacion: AutoEvaluacion[] | null = null;
+  tipoEvaluacion1: string = '';
+  nombreEvaluador1: string[] | null = null;
  
 
   constructor(private encuestaService: EncuestaService) { }
 
   ngOnInit(): void {
-    this.encuestaService.getData('evaluacion')
-            .subscribe(teach => this.nombreEvaluador1 = teach);
+
+    this.initData();
+
+
+  }
+
+  initData(){
+    this.encuestaService.getData('tipoEvaluacion1')
+    .subscribe(teach => this.tipoEvaluacion1 = (teach[0].nombre));
+
+    this.encuestaService.getData('nombreEvaluador1')
+            .subscribe(teach => {this.nombreEvaluador1 = teach});
+
   }
   
  

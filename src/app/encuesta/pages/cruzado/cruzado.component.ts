@@ -1,5 +1,7 @@
+import { InterpolationConfig } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { EncuestaService } from 'src/app/services/encuesta.service';
+
 
 interface Alumno 
   {
@@ -17,26 +19,31 @@ export class CruzadoComponent implements OnInit {
 
 
 
-  alumnos: Alumno[] = [
-    {codigo: 1001, nombre: "Gualberto Guano"},
-    {codigo: 1002, nombre: "Humberto Hernandez"},
-    {codigo: 1003, nombre: "Ignacio Intriago"},
-    {codigo: 1004, nombre: "Jairo Jacome"},
-    
-
-  ];
+  alumnos: Alumno[] | null = null;
   nombreEvaluador1: string[] = [];
-
+  tipoEvaluacion1: string  = '';
 
    constructor(private encuestaService: EncuestaService) { }
 
   ngOnInit(): void {
 
-    // this.encuestaService.getData('teacher1')
-    //         .subscribe(teach => this.teacher1 = teach);
+    this.initData()
+    
+  }
+
+
+
+  initData(){
+    this.encuestaService.getData('alumnos')
+            .subscribe(teach => this.alumnos = teach);
+
+    this.encuestaService.getData('tipoEvaluacion1')
+            .subscribe(teach => this.tipoEvaluacion1 = (teach[3].nombre));
 
     this.encuestaService.getData('nombreEvaluador1')
             .subscribe(teach => this.nombreEvaluador1 = teach);
   }
 
 }
+
+

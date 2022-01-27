@@ -52,10 +52,8 @@ export class EncuestaComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log(this.basePersonas);
     this.basePersonas.filter(nombre => this.teacher.push(nombre.nombre) )
-
-    console.log(this.miFormulario.value);    
+    
     this.miFormulario.reset(
       {
         tipoEvaluacion:this.evaluacion,

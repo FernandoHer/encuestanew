@@ -18,8 +18,7 @@ export class ProfesorComponent implements OnInit {
 
 
   profesores: Profesor[] | null = null;
-
-  
+  tipoEvaluacion1: string = '';  
   nombreEvaluador1: string[] = [];
 
 
@@ -28,14 +27,19 @@ export class ProfesorComponent implements OnInit {
   ngOnInit(): void {
 
     
+    this.initData();
+  }
+
+  initData(){
     this.encuestaService.getData('profesores')
-            .subscribe(teach =>  {
-              this.profesores = teach;
-              console.log(this.profesores);
-            });
+            .subscribe(teach => this.profesores = teach);
+
+    this.encuestaService.getData('tipoEvaluacion1')
+            .subscribe(teach => this.tipoEvaluacion1 = (teach[1].nombre));
 
     this.encuestaService.getData('nombreEvaluador1')
             .subscribe(teach => this.nombreEvaluador1 = teach);
   }
+  
   
 }
